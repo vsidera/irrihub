@@ -15,7 +15,8 @@ import UserDevices from "./pages/user-devices/UserDevices";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>      
+      <BrowserRouter>     
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <Routes>
           <Route path='/login' exact element={<Login/>} />
           {/* <Route path="my-devices/:id" element={<Home/>} /> */}
