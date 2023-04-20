@@ -30,7 +30,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.primary,
 }));
 
-
 const Login = () => {
   const navigate = useNavigate();
   // Init cookies
