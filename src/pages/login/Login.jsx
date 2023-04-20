@@ -129,7 +129,7 @@ const Login = () => {
           bottom: 0,
           // background: backDropBG,
         }} /> */}
-        <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 3 ,position:'relative',margin:12}}>
+        <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 3 ,position:'relative',}}>
           <StyledPaper
             sx={{
               my: 1,

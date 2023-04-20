@@ -34,7 +34,7 @@ const UserDevices = () => {
     <>
     {isLoaded ? <div className="flex justify-center h-screen bg-gray-100 shadow-2xl shadow-top rounded-lg ">
   <div
-          className="flex flex-col justify-center items-center mt-6 mx-auto p-8"
+          className="flex flex-col justify-center items-center mt-6 mx-auto "
     style={{ width: "60vw" }}
   >
      <h4 className="text-lg text-primary flex justify-center mb-6 font-serif">

@@ -381,15 +381,15 @@ const Profile = () => {
       />
 
       <Sidebar>
-        <h1 className="text-2xl text-black mb-6">Profile</h1>
-        <h4 className="text-md text-blue-900 font-serif">
+        <h1 className="text-2xl text-black mb-6 ml-4">Profile</h1>
+        <h4 className="text-md text-blue-900 font-['Ubuntu'] ml-4">
           {" "}
           Details about the Device and Owner
         </h4>
         <div className="mt-4">
           <div className="container mx-auto mt-4">
             {/* <div className="flex flex-wrap -mx-4"> */}
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-2">
               <div className="w-full  px-4 mb-4 lg:col-span-1 sm:col-span-2">
                 <div className="rounded-lg shadow-lg p-4">
                   <div className="bg-gray-100 rounded-lg p-4">
@@ -471,7 +471,7 @@ const Profile = () => {
             </div>
 
             {/* <div className="w-full px-4"> */}
-            <div className='grid grid-cols-2 gap-4 mx-4'>
+            <div className='grid lg:grid-cols-2 sm:grid-cols-2 gap-4 mx-4'>
               <div className="sm:col-span-2 lg:col-span-1 grid grid-cols-2 gap-4  ">
                 <div className="w-full h-full">
                   <div>
