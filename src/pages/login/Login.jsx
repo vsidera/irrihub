@@ -4,7 +4,7 @@ import { useState } from "react";
 import { loginAction } from "../../actions/login/loginAction";
 import { useNavigate } from "react-router-dom";
 import SnackbarAlert from "../../components/utils/snackbar";
-
+import { TextField } from '@material-ui/core';
 const Login = () => {
   const navigate = useNavigate();
   // Init cookies
@@ -102,6 +102,7 @@ const Login = () => {
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder-center"
                   placeholder="254711438911"
                   required=""
+                  style={{ touchAction: 'manipulation' }}
                 />
               </div>
               <div>
@@ -120,6 +121,7 @@ const Login = () => {
                   placeholder="••••"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
+                  style={{ touchAction: 'manipulation' }}
                 />
               </div>
               <div class="flex items-center justify-between flex-wrap">
