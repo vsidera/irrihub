@@ -85,7 +85,7 @@ const Login = () => {
               <img src={logoUrl} alt="Logo" />
             </div>
 
-            <form class="space-y-4" action="#">
+            <form class="space-y-4" action="#" style={{ touchAction: 'manipulation' }}>
               <div>
                 <label
                   for="email"
