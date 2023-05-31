@@ -34,6 +34,102 @@ export function deviceList(formValues) {
       });
   }
 
+  export function imeiSearch(formValues) {
+    const searchUrl = `${apiUrl.DEVICE_SEARCH}?search=${formValues.search}`;
+    const config = authHeaders();
+  
+    return axios
+      .get(searchUrl, config)
+      .then((res) => {
+      
+        if (res.data && res.status === 200) {
+
+            console.log("THE RESPONSE IS !!!!!!!",res)
+          
+        }
+        return res;
+      })
+      .catch((error) => {
+        if (error.response) {
+        
+          return {
+            errors: {
+              _error: 'The user could not be created.',
+            },
+          };
+        }   
+        return {
+          errors: {
+            _error: 'Network error. Please try again.',
+          },
+        };
+      });
+  }  
+
+  export function imeiCreate(imei) {
+    const imeiCreateUrl = `${apiUrl.CREATE_IMEI}/${imei}`;
+    const config = authHeaders();
+  
+    return axios
+      .put(imeiCreateUrl, config)
+      .then((res) => {
+      
+        if (res.data && res.status === 201) {
+
+            console.log("THE RESPONSE IS !!!!!!!",res)
+          
+        }
+        return res;
+      })
+      .catch((error) => {
+        if (error.response) {
+        
+          return {
+            errors: {
+              _error: 'The contacts could not be returned.',
+            },
+          };
+        }   
+        return {
+          errors: {
+            _error: 'Network error. Please try again.',
+          },
+        };
+      });
+  }
+
+  export function deviceCreate(newDevice) {
+    const deviceCreateUrl = apiUrl.DEVICE_CREATE;
+    const config = authHeaders();
+  
+    return axios
+      .post(deviceCreateUrl, newDevice, config)
+      .then((res) => {
+      
+        if (res.data && res.status === 201) {
+
+            console.log("THE RESPONSE IS !!!!!!!",res)
+          
+        }
+        return res;
+      })
+      .catch((error) => {
+        if (error.response) {
+        
+          return {
+            errors: {
+              _error: 'The contacts could not be returned.',
+            },
+          };
+        }   
+        return {
+          errors: {
+            _error: 'Network error. Please try again.',
+          },
+        };
+      });
+  }
+
   export function deviceDataLogs(imei) {
     const logsUrl = `${apiUrl.DATA_LOGS}/${imei}?limit=30&page=1`;
     const config = authHeaders();

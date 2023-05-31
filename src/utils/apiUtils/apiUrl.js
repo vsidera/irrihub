@@ -13,6 +13,10 @@ export default {
     DATA_LOGS: `${REACT_APP_IRRIHUB_URL}/api/v1/device/data/logs`,
     ATTACH_CUSTOMER: `${REACT_APP_IRRIHUB_URL}/api/v1/device`,
     CUSTOMER_SEARCH: `${REACT_APP_IRRIHUB_URL}/api/v1/customer/search`,
+    DEVICE_SEARCH: `${REACT_APP_IRRIHUB_URL}/api/v1/imei/available/list`,
+    CREATE_IMEI: `${REACT_APP_IRRIHUB_URL}/api/v1/imei/add`,
+
+    DEVICE_CREATE: `${REACT_APP_IRRIHUB_URL}/api/v1/device/create`,
 
     LIST_CONTACTS: `${REACT_APP_SUSS_URL}/api/v1/contact`,
     CREATE_CONTACT: `${REACT_APP_SUSS_URL}/api/v1/contact`,

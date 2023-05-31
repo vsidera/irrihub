@@ -7,7 +7,7 @@ import RegisterUserModal from "../../components/modals/register_user";
 import CreateDeviceModal from "../../components/modals/add_device";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import QueueIcon from '@mui/icons-material/Queue';
-import { deviceList } from "../../actions/device/deviceAction";
+import { deviceList, imeiCreate } from "../../actions/device/deviceAction";
 import AttachCustomerModal from "../../components/modals/attach_customer";
 
 const getMuiTheme = () =>
@@ -70,6 +70,12 @@ const getMuiTheme = () =>
   });
 
 const Devices = () => {
+
+  const [isSnackBarAlertOpen, setIsSnackBarAlertOpen] = useState(false);
+  const [eventType, setEventType] = useState("");
+  const [eventMessage, setEventMessage] = useState("");
+  const [eventTitle, setEventTitle] = useState("");
+
   const [devices, setDevices] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [deviceModal, setDeviceModal] = useState(false);
@@ -78,6 +84,7 @@ const Devices = () => {
 
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10)
+  const [imei, setImei] = useState("")
   const [attachCustomerModal, setAttachCustomerModal] = useState(false);
 
   const closeDeviceModal = (e) => {
@@ -110,6 +117,26 @@ const Devices = () => {
     SetSelectedImei(imei)
     setAttachCustomerModal(true)
   }
+
+  const handleAddImei = (e) => {
+    e.preventDefault();
+
+    const res = imeiCreate(imei).then((res) => {
+      if (res.status === 201) {
+        setEventType("success");
+        setEventMessage("Imei Successfully Created");
+        setEventTitle("IMEI CREATE");
+        setIsSnackBarAlertOpen(true);
+      } else {
+        setEventType("fail");
+        setEventMessage("Imei NOT Created");
+        setEventTitle("IMEI CREATE");
+        setIsSnackBarAlertOpen(true);
+      }
+    });
+
+    return res;
+  };
 
   useEffect(() => {
     getDevices();
@@ -245,6 +272,23 @@ const Devices = () => {
     <h1 className="text-2xl text-black mb-6">Devices</h1>
     <h4 className="text-md text-gray-800 font-serif">A list of all the devices </h4>
     <div className="flex justify-end">
+          <input className="w-44 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-2 py-2 mt-4 flex items-center mr-2 border-2 border-black-900 text-gray-600"
+          type="number"
+          placeholder="Enter IMEI"
+          value={imei}
+          onChange={(e) =>setImei(e.target.value)}
+        />
+        
+        <button
+          type="button"
+          className="text-white w-28 bg-blue-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-2 py-2 mt-4 flex items-center mr-2"
+          onClick={(e) => {
+            handleAddImei(e);}}
+        >
+
+          <p className="ml-4">Add Imei</p>
+        </button>
+   
         <button
           type="button"
           className="text-white w-36 bg-blue-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-2 py-2 mt-4 flex items-center mr-2"
