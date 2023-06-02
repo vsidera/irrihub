@@ -9,7 +9,7 @@ const UserDevices = () => {
   const [clientDevices, setUserDevices] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const userId = 2
+  const userId = 3
 
   const getUserDevices = () => {
     userDevices({userId})
@@ -26,6 +26,9 @@ const UserDevices = () => {
       });
   };
 
+  console.log("THIS IS IMEI!!!!!!!", clientDevices)
+
+
   useEffect(() => {
     getUserDevices();
   }, []);
@@ -39,7 +42,7 @@ const UserDevices = () => {
           style={{ width: "60vw" }}
         >
           <h4 className="text-lg text-primary flex justify-center mb-6 font-serif font-semibold">
-            SELECT A DEVICE
+            SELECT A DEVICE.
           </h4>
           {clientDevices.map((app, index) => (
             <Link
